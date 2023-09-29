@@ -1,0 +1,60 @@
+method: bayes
+metric:
+  goal: maximize
+  name: rollout/ep_rew_mean
+parameters:
+  batch_size:
+    distribution: int_uniform
+    max: 4096
+    min: 4
+  clip_range:
+    distribution: categorical
+    values:
+      - 0.1
+      - 0.2
+      - 0.3
+  ent_coef:
+    distribution: uniform
+    max: 0.01
+    min: 0
+  gae_lambda:
+    distribution: uniform
+    max: 1
+    min: 0.9
+  gamma:
+    distribution: uniform
+    max: 0.9997
+    min: 0.8
+  learning_rate:
+    distribution: uniform
+    max: 0.0009
+    min: 1e-05
+  max_grad_norm:
+    distribution: uniform
+    max: 1
+    min: 0.5
+  n_epochs:
+    distribution: int_uniform
+    max: 30
+    min: 3
+  n_steps:
+    distribution: int_uniform
+    max: 5000
+    min: 32
+  stats_window_size:
+    distribution: int_uniform
+    max: 200
+    min: 50
+  target_kl:
+    distribution: uniform
+    max: 0.03
+    min: 0.003
+  total_timesteps:
+    distribution: int_uniform
+    max: 2000000
+    min: 50000
+  vf_coef:
+    distribution: uniform
+    max: 1
+    min: 0.5
+project: SOMN
